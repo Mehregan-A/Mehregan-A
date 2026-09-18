@@ -49,3 +49,10 @@ I'm also interested in **electronics**, so I'll be sharing projects in that area
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 ![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=flat&logo=adobephotoshop&logoColor=white)
 ![Illustrator](https://img.shields.io/badge/Illustrator-FF9A00?style=flat&logo=adobeillustrator&logoColor=white)
+
+## GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Mehregan-A&show_icons=true&hide_border=true&theme=default" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mehregan-A&layout=compact&hide_border=true&theme=default" />
+</p>
