@@ -11,7 +11,6 @@ const query = `
 query($username: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $username) {
     contributionsCollection(from: $from, to: $to) {
-      totalCommitContributions
       contributionCalendar {
         weeks {
           contributionDays {
@@ -31,27 +30,32 @@ async function getData() {
 
   from.setFullYear(from.getFullYear() - 1);
 
-  const response = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables: {
-        username,
-        from: from.toISOString(),
-        to: to.toISOString(),
+  const response = await fetch(
+    "https://api.github.com/graphql",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
-    }),
-  });
+      body: JSON.stringify({
+        query,
+        variables: {
+          username,
+          from: from.toISOString(),
+          to: to.toISOString(),
+        },
+      }),
+    }
+  );
 
   const result = await response.json();
 
   if (!response.ok || result.errors) {
     console.error(result);
-    throw new Error("GitHub GraphQL request failed.");
+    throw new Error(
+      "GitHub GraphQL request failed."
+    );
   }
 
   return result.data.user.contributionsCollection;
@@ -59,7 +63,6 @@ async function getData() {
 
 function getMonthlyData(calendar) {
   const months = [];
-
   const now = new Date();
 
   for (let i = 11; i >= 0; i--) {
@@ -99,13 +102,13 @@ function getMonthlyData(calendar) {
 }
 
 function createSVG(months) {
-  const width = 800;
-  const height = 650;
+  const width = 620;
+  const height = 500;
 
-  const cx = 400;
-  const cy = 330;
+  const cx = 310;
+  const cy = 285;
 
-  const radius = 220;
+  const radius = 155;
 
   const max = Math.max(
     ...months.map((item) => item.count),
@@ -165,7 +168,7 @@ function createSVG(months) {
         points="${ringPoints}"
         fill="none"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     `;
   });
@@ -181,11 +184,11 @@ function createSVG(months) {
         x2="${point.x}"
         y2="${point.y}"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     `;
 
-    const labelRadius = radius + 35;
+    const labelRadius = radius + 28;
 
     const labelX =
       cx + Math.cos(point.angle) * labelRadius;
@@ -199,10 +202,10 @@ function createSVG(months) {
         y="${labelY}"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         ${point.label}
       </text>
@@ -215,16 +218,16 @@ function createSVG(months) {
         <circle
           cx="${point.x}"
           cy="${point.y}"
-          r="6"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
           x="${point.x}"
-          y="${point.y - 12}"
+          y="${point.y - 9}"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -246,62 +249,168 @@ function createSVG(months) {
   height="${height}"
   viewBox="0 0 ${width} ${height}"
 >
+  <defs>
+
+    <filter
+      id="glow"
+      x="-50%"
+      y="-50%"
+      width="200%"
+      height="200%"
+    >
+      <feGaussianBlur
+        stdDeviation="3"
+        result="blur"
+      />
+
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter
+      id="strongGlow"
+      x="-50%"
+      y="-50%"
+      width="200%"
+      height="200%"
+    >
+      <feGaussianBlur
+        stdDeviation="6"
+        result="blur"
+      />
+
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+  </defs>
+
   <rect
     width="100%"
     height="100%"
-    rx="24"
+    rx="20"
     fill="#ffffff"
   />
 
+  <!-- Title -->
+
   <text
     x="${cx}"
-    y="45"
+    y="35"
     text-anchor="middle"
-    font-family="Arial"
-    font-size="23"
+    font-family="Arial, sans-serif"
+    font-size="19"
     font-weight="700"
     fill="#111827"
   >
-    Commit Activity
+    GitHub Contributions
   </text>
 
   <text
     x="${cx}"
-    y="72"
+    y="57"
     text-anchor="middle"
-    font-family="Arial"
-    font-size="13"
+    font-family="Arial, sans-serif"
+    font-size="11"
     fill="#6b7280"
   >
-    ${total} contributions in the last 12 months
+    ${total} contributions · last 12 months
   </text>
 
-  ${rings}
+  <!-- Radar -->
 
-  ${axes}
+  <g>
+    ${rings}
+    ${axes}
+  </g>
+
+  <!-- Glow behind electric line -->
+
+  <polygon
+    points="${polygon}"
+    fill="none"
+    stroke="#06b6d4"
+    stroke-width="7"
+    opacity="0.12"
+    filter="url(#strongGlow)"
+  />
+
+  <!-- Main data area -->
 
   <polygon
     points="${polygon}"
     fill="#06b6d4"
-    fill-opacity="0.18"
+    fill-opacity="0.10"
     stroke="#06b6d4"
-    stroke-width="3"
+    stroke-width="2"
   />
 
+  <!-- Electric glow -->
+
+  <polygon
+    points="${polygon}"
+    fill="none"
+    stroke="#22d3ee"
+    stroke-width="5"
+    opacity="0.35"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-dasharray="10 18"
+    filter="url(#glow)"
+  >
+    <animate
+      attributeName="stroke-dashoffset"
+      from="0"
+      to="-56"
+      dur="1.2s"
+      repeatCount="indefinite"
+    />
+  </polygon>
+
+  <!-- Moving electric current -->
+
+  <polygon
+    points="${polygon}"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-dasharray="3 25"
+    filter="url(#glow)"
+  >
+    <animate
+      attributeName="stroke-dashoffset"
+      from="0"
+      to="-56"
+      dur="0.8s"
+      repeatCount="indefinite"
+    />
+  </polygon>
+
+  <!-- Data points -->
+
   ${circles}
+
+  <!-- Labels -->
 
   ${labels}
 
   <text
     x="${cx}"
-    y="${height - 25}"
+    y="${height - 16}"
     text-anchor="middle"
-    font-family="Arial"
-    font-size="11"
+    font-family="Arial, sans-serif"
+    font-size="9"
     fill="#9ca3af"
   >
     Mehregan-A
   </text>
+
 </svg>
 `;
 }
@@ -324,7 +433,9 @@ async function main() {
     svg.trim()
   );
 
-  console.log("Spider chart generated successfully.");
+  console.log(
+    "Animated spider chart generated successfully."
+  );
 }
 
 main().catch((error) => {
