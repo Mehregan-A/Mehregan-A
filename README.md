@@ -52,7 +52,4 @@ I'm also interested in **electronics**, so I'll be sharing projects in that area
 
 ## GitHub Stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Mehregan-A&show_icons=true&hide_border=true&theme=default" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mehregan-A&layout=compact&hide_border=true&theme=default" />
-</p>
+![Mehregan's GitHub stats](https://github-readme-stats.vercel.app/api?username=Mehregan-A&show_icons=true)
