@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 
 const username = "Mehregan-A";
@@ -53,9 +54,7 @@ async function getData() {
 
   if (!response.ok || result.errors) {
     console.error(result);
-    throw new Error(
-      "GitHub GraphQL request failed."
-    );
+    throw new Error("GitHub GraphQL request failed.");
   }
 
   return result.data.user.contributionsCollection;
@@ -250,7 +249,6 @@ function createSVG(months) {
   viewBox="0 0 ${width} ${height}"
 >
   <defs>
-
     <filter
       id="glow"
       x="-50%"
@@ -286,7 +284,6 @@ function createSVG(months) {
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
   </defs>
 
   <rect
@@ -328,7 +325,7 @@ function createSVG(months) {
     ${axes}
   </g>
 
-  <!-- Glow behind electric line -->
+  <!-- Soft glow behind the data -->
 
   <polygon
     points="${polygon}"
@@ -349,45 +346,48 @@ function createSVG(months) {
     stroke-width="2"
   />
 
-  <!-- Electric glow -->
+  <!-- One slow cyan electric pulse -->
 
   <polygon
     points="${polygon}"
+    pathLength="1000"
     fill="none"
     stroke="#22d3ee"
     stroke-width="5"
-    opacity="0.35"
+    opacity="0.7"
     stroke-linecap="round"
     stroke-linejoin="round"
-    stroke-dasharray="10 18"
-    filter="url(#glow)"
+    stroke-dasharray="18 982"
+    filter="url(#strongGlow)"
   >
     <animate
       attributeName="stroke-dashoffset"
       from="0"
-      to="-56"
-      dur="1.2s"
+      to="-1000"
+      dur="8s"
       repeatCount="indefinite"
     />
   </polygon>
 
-  <!-- Moving electric current -->
+  <!-- One bright white pulse -->
 
   <polygon
     points="${polygon}"
+    pathLength="1000"
     fill="none"
     stroke="#ffffff"
-    stroke-width="2"
+    stroke-width="2.5"
+    opacity="0.95"
     stroke-linecap="round"
     stroke-linejoin="round"
-    stroke-dasharray="3 25"
+    stroke-dasharray="8 992"
     filter="url(#glow)"
   >
     <animate
       attributeName="stroke-dashoffset"
       from="0"
-      to="-56"
-      dur="0.8s"
+      to="-1000"
+      dur="8s"
       repeatCount="indefinite"
     />
   </polygon>
@@ -396,7 +396,7 @@ function createSVG(months) {
 
   ${circles}
 
-  <!-- Labels -->
+  <!-- Month labels -->
 
   ${labels}
 
