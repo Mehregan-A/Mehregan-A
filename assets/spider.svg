@@ -1,0 +1,439 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="700"
+  height="600"
+  viewBox="0 0 700 600"
+>
+  <rect
+    width="100%"
+    height="100%"
+    rx="20"
+    fill="#ffffff"
+  />
+
+  <text
+    x="350"
+    y="45"
+    text-anchor="middle"
+    font-family="Arial"
+    font-size="22"
+    font-weight="700"
+    fill="#111827"
+  >
+    Commit Activity
+  </text>
+
+  <text
+    x="350"
+    y="70"
+    text-anchor="middle"
+    font-family="Arial"
+    font-size="13"
+    fill="#6b7280"
+  >
+    0 commits in the last 12 months
+  </text>
+
+  
+      <polygon
+        points="350,252.5 373.75,258.86379332023915 391.13620667976085,276.25 397.5,300 391.13620667976085,323.75 373.75,341.13620667976085 350,347.5 326.25,341.13620667976085 308.86379332023915,323.75 302.5,300 308.86379332023915,276.25 326.25,258.86379332023915"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="1"
+      />
+    
+      <polygon
+        points="350,205 397.5,217.7275866404783 432.2724133595217,252.5 445,300 432.2724133595217,347.5 397.5,382.2724133595217 350,395 302.5,382.2724133595217 267.72758664047836,347.5 255,300 267.7275866404783,252.5 302.49999999999994,217.72758664047836"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="1"
+      />
+    
+      <polygon
+        points="350,157.5 421.25,176.5913799607175 473.4086200392825,228.75 492.5,300 473.4086200392825,371.25 421.25,423.4086200392825 350,442.5 278.75,423.4086200392825 226.59137996071752,371.25000000000006 207.5,300 226.59137996071752,228.75 278.74999999999994,176.59137996071752"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="1"
+      />
+    
+      <polygon
+        points="350,110 445,135.45517328095664 514.5448267190434,205 540,300 514.5448267190434,395 445,464.5448267190434 350,490 255.00000000000006,464.5448267190434 185.4551732809567,395.00000000000006 160,300 185.45517328095667,205 254.99999999999991,135.4551732809567"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="1"
+      />
+    
+
+  
+      <line
+        x1="350"
+        y1="300"
+        x2="350"
+        y2="110"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="445"
+        y2="135.45517328095664"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="514.5448267190434"
+        y2="205"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="540"
+        y2="300"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="514.5448267190434"
+        y2="395"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="445"
+        y2="464.5448267190434"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="350"
+        y2="490"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="255.00000000000006"
+        y2="464.5448267190434"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="185.4551732809567"
+        y2="395.00000000000006"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="160"
+        y2="300"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="185.45517328095667"
+        y2="205"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+      <line
+        x1="350"
+        y1="300"
+        x2="254.99999999999991"
+        y2="135.4551732809567"
+        stroke="#d1d5db"
+        stroke-width="1"
+      />
+    
+
+  <polygon
+    points="350,300 350,300 350,300 350,300 350,300 350,300 350,300 350,300 350,300 350,300 350,300 350,300"
+    fill="#06b6d4"
+    fill-opacity="0.18"
+    stroke="#06b6d4"
+    stroke-width="3"
+  />
+
+  
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+        <circle
+          cx="350"
+          cy="300"
+          r="5"
+          fill="#06b6d4"
+        />
+      
+
+  
+      <text
+        x="350"
+        y="80"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Oct
+      </text>
+    
+      <text
+        x="460"
+        y="109.47441116742348"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Nov
+      </text>
+    
+      <text
+        x="540.5255888325764"
+        y="190"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Dec
+      </text>
+    
+      <text
+        x="570"
+        y="300"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Jan
+      </text>
+    
+      <text
+        x="540.5255888325765"
+        y="409.99999999999994"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Feb
+      </text>
+    
+      <text
+        x="460"
+        y="490.52558883257655"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Mar
+      </text>
+    
+      <text
+        x="350"
+        y="520"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Apr
+      </text>
+    
+      <text
+        x="240.00000000000006"
+        y="490.52558883257655"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        May
+      </text>
+    
+      <text
+        x="159.47441116742354"
+        y="410.00000000000006"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Jun
+      </text>
+    
+      <text
+        x="130"
+        y="300"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Jul
+      </text>
+    
+      <text
+        x="159.4744111674235"
+        y="189.99999999999997"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Aug
+      </text>
+    
+      <text
+        x="239.9999999999999"
+        y="109.47441116742354"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial"
+        font-size="14"
+        font-weight="600"
+        fill="#374151"
+      >
+        Sep
+      </text>
+    
+
+  <text
+    x="350"
+    y="575"
+    text-anchor="middle"
+    font-family="Arial"
+    font-size="11"
+    fill="#9ca3af"
+  >
+    Mehregan-A
+  </text>
+</svg>
