@@ -100,13 +100,17 @@ function getMonthlyData(calendar) {
 }
 
 function createSVG(months) {
-  const width = 620;
-  const height = 520;
+  /*
+   * Compact dimensions
+   */
 
-  const cx = 310;
-  const cy = 305;
+  const width = 320;
+  const height = 300;
 
-  const radius = 150;
+  const cx = 160;
+  const cy = 158;
+
+  const radius = 76;
 
   const max = Math.max(
     ...months.map((item) => item.count),
@@ -177,7 +181,7 @@ function createSVG(months) {
               : "#12384a"
           }"
           stroke-width="${
-            index === 3 ? "1.4" : "1"
+            index === 3 ? "1.1" : "0.8"
           }"
         />
       `;
@@ -210,7 +214,7 @@ function createSVG(months) {
           <circle
             cx="${x}"
             cy="${y}"
-            r="1.3"
+            r="0.9"
             fill="#164e63"
           />
         `;
@@ -232,7 +236,7 @@ function createSVG(months) {
         x2="${point.x}"
         y2="${point.y}"
         stroke="#164e63"
-        stroke-width="0.9"
+        stroke-width="0.7"
       />
     `;
   });
@@ -243,8 +247,8 @@ function createSVG(months) {
 
   let labels = "";
 
-  points.forEach((point, index) => {
-    const labelRadius = radius + 43;
+  points.forEach((point) => {
+    const labelRadius = radius + 27;
 
     const labelX =
       cx +
@@ -259,22 +263,22 @@ function createSVG(months) {
     const lineStartX =
       cx +
       Math.cos(point.angle) *
-        (radius + 3);
+        (radius + 2);
 
     const lineStartY =
       cy +
       Math.sin(point.angle) *
-        (radius + 3);
+        (radius + 2);
 
     const lineEndX =
       cx +
       Math.cos(point.angle) *
-        (radius + 27);
+        (radius + 17);
 
     const lineEndY =
       cy +
       Math.sin(point.angle) *
-        (radius + 27);
+        (radius + 17);
 
     labels += `
       <!-- Month connector -->
@@ -285,7 +289,7 @@ function createSVG(months) {
         x2="${lineEndX}"
         y2="${lineEndY}"
         stroke="#155e75"
-        stroke-width="1"
+        stroke-width="0.8"
       />
 
       <!-- Month node -->
@@ -293,7 +297,7 @@ function createSVG(months) {
       <circle
         cx="${lineEndX}"
         cy="${lineEndY}"
-        r="2.5"
+        r="1.7"
         fill="#22d3ee"
         opacity="0.9"
         filter="url(#glow)"
@@ -307,9 +311,9 @@ function createSVG(months) {
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
-        font-size="11"
+        font-size="7"
         font-weight="600"
-        letter-spacing="0.4"
+        letter-spacing="0.2"
         fill="#bae6fd"
       >
         ${point.label}
@@ -327,25 +331,25 @@ function createSVG(months) {
         <circle
           cx="${point.x}"
           cy="${point.y}"
-          r="4"
+          r="2.5"
           fill="#082f49"
           stroke="#22d3ee"
-          stroke-width="1.5"
+          stroke-width="1"
         />
 
         <circle
           cx="${point.x}"
           cy="${point.y}"
-          r="1.5"
+          r="1"
           fill="#67e8f9"
         />
 
         <text
           x="${point.x}"
-          y="${point.y - 11}"
+          y="${point.y - 7}"
           text-anchor="middle"
           font-family="Arial, sans-serif"
-          font-size="9"
+          font-size="6"
           font-weight="600"
           fill="#a5f3fc"
         >
@@ -401,7 +405,7 @@ function createSVG(months) {
       height="300%"
     >
       <feGaussianBlur
-        stdDeviation="3"
+        stdDeviation="1.8"
         result="blur"
       />
 
@@ -421,7 +425,7 @@ function createSVG(months) {
       height="300%"
     >
       <feGaussianBlur
-        stdDeviation="7"
+        stdDeviation="4"
         result="blur"
       />
 
@@ -456,7 +460,7 @@ function createSVG(months) {
   <rect
     width="100%"
     height="100%"
-    rx="20"
+    rx="14"
     fill="url(#background)"
   />
 
@@ -465,7 +469,7 @@ function createSVG(months) {
   <circle
     cx="${cx}"
     cy="${cy}"
-    r="175"
+    r="90"
     fill="url(#centerGlow)"
   />
 
@@ -473,12 +477,12 @@ function createSVG(months) {
 
   <text
     x="${cx}"
-    y="34"
+    y="24"
     text-anchor="middle"
     font-family="Arial, sans-serif"
-    font-size="19"
+    font-size="11"
     font-weight="700"
-    letter-spacing="0.5"
+    letter-spacing="0.3"
     fill="#e0f2fe"
   >
     GitHub Contributions
@@ -486,10 +490,10 @@ function createSVG(months) {
 
   <text
     x="${cx}"
-    y="56"
+    y="39"
     text-anchor="middle"
     font-family="Arial, sans-serif"
-    font-size="11"
+    font-size="6.5"
     fill="#67e8f9"
   >
     ${total} contributions · last 12 months
@@ -498,25 +502,25 @@ function createSVG(months) {
   <!-- Small header line -->
 
   <line
-    x1="${cx - 75}"
-    y1="70"
-    x2="${cx + 75}"
-    y2="70"
+    x1="${cx - 38}"
+    y1="49"
+    x2="${cx + 38}"
+    y2="49"
     stroke="#164e63"
-    stroke-width="1"
+    stroke-width="0.7"
   />
 
   <circle
-    cx="${cx - 78}"
-    cy="70"
-    r="2"
+    cx="${cx - 40}"
+    cy="49"
+    r="1.3"
     fill="#22d3ee"
   />
 
   <circle
-    cx="${cx + 78}"
-    cy="70"
-    r="2"
+    cx="${cx + 40}"
+    cy="49"
+    r="1.3"
     fill="#22d3ee"
   />
 
@@ -543,7 +547,7 @@ function createSVG(months) {
       .join(" ")}"
     fill="none"
     stroke="#0891b2"
-    stroke-width="3"
+    stroke-width="2"
     opacity="0.18"
     filter="url(#strongGlow)"
   />
@@ -555,7 +559,7 @@ function createSVG(months) {
     fill="#06b6d4"
     fill-opacity="0.13"
     stroke="#22d3ee"
-    stroke-width="2"
+    stroke-width="1.2"
     stroke-linejoin="round"
   />
 
@@ -565,7 +569,7 @@ function createSVG(months) {
     points="${polygon}"
     fill="none"
     stroke="#22d3ee"
-    stroke-width="5"
+    stroke-width="3"
     opacity="0.18"
     stroke-linejoin="round"
     filter="url(#strongGlow)"
@@ -578,7 +582,7 @@ function createSVG(months) {
     pathLength="1000"
     fill="none"
     stroke="#22d3ee"
-    stroke-width="5"
+    stroke-width="3"
     opacity="0.75"
     stroke-linecap="round"
     stroke-linejoin="round"
@@ -601,7 +605,7 @@ function createSVG(months) {
     pathLength="1000"
     fill="none"
     stroke="#ffffff"
-    stroke-width="2.5"
+    stroke-width="1.5"
     opacity="0.95"
     stroke-linecap="round"
     stroke-linejoin="round"
@@ -630,17 +634,17 @@ function createSVG(months) {
   <circle
     cx="${cx}"
     cy="${cy}"
-    r="7"
+    r="4"
     fill="#06141f"
     stroke="#22d3ee"
-    stroke-width="1.5"
+    stroke-width="1"
     filter="url(#glow)"
   />
 
   <circle
     cx="${cx}"
     cy="${cy}"
-    r="2.5"
+    r="1.5"
     fill="#67e8f9"
   />
 
@@ -648,11 +652,11 @@ function createSVG(months) {
 
   <text
     x="${cx}"
-    y="${height - 15}"
+    y="${height - 14}"
     text-anchor="middle"
     font-family="Arial, sans-serif"
-    font-size="9"
-    letter-spacing="1"
+    font-size="6"
+    letter-spacing="0.8"
     fill="#164e63"
   >
     MEHREGAN-A
