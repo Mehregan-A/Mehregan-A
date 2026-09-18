@@ -1,201 +1,304 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="800"
-  height="650"
-  viewBox="0 0 800 650"
+  width="620"
+  height="500"
+  viewBox="0 0 620 500"
 >
+  <defs>
+
+    <filter
+      id="glow"
+      x="-50%"
+      y="-50%"
+      width="200%"
+      height="200%"
+    >
+      <feGaussianBlur
+        stdDeviation="3"
+        result="blur"
+      />
+
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter
+      id="strongGlow"
+      x="-50%"
+      y="-50%"
+      width="200%"
+      height="200%"
+    >
+      <feGaussianBlur
+        stdDeviation="6"
+        result="blur"
+      />
+
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+  </defs>
+
   <rect
     width="100%"
     height="100%"
-    rx="24"
+    rx="20"
     fill="#ffffff"
   />
 
+  <!-- Title -->
+
   <text
-    x="400"
-    y="45"
+    x="310"
+    y="35"
     text-anchor="middle"
-    font-family="Arial"
-    font-size="23"
+    font-family="Arial, sans-serif"
+    font-size="19"
     font-weight="700"
     fill="#111827"
   >
-    Commit Activity
+    GitHub Contributions
   </text>
 
   <text
-    x="400"
-    y="72"
+    x="310"
+    y="57"
     text-anchor="middle"
-    font-family="Arial"
-    font-size="13"
+    font-family="Arial, sans-serif"
+    font-size="11"
     fill="#6b7280"
   >
-    144 contributions in the last 12 months
+    145 contributions · last 12 months
   </text>
 
-  
-      <polygon
-        points="400,275 427.5,282.3686027918559 447.6313972081441,302.5 455,330 447.6313972081441,357.5 427.5,377.6313972081441 400,385 372.5,377.6313972081441 352.3686027918559,357.5 345,330 352.3686027918559,302.5 372.5,282.3686027918559"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="1"
-      />
-    
-      <polygon
-        points="400,220 455,234.73720558371173 495.2627944162882,275 510,330 495.2627944162883,385 455,425.2627944162883 400,440 345,425.2627944162883 304.7372055837118,385.00000000000006 290,330 304.7372055837118,275 344.99999999999994,234.73720558371178"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="1"
-      />
-    
-      <polygon
-        points="400,165 482.5,187.10580837556762 542.8941916244323,247.5 565,330 542.8941916244323,412.5 482.5,472.8941916244324 400,495 317.50000000000006,472.8941916244324 257.1058083755677,412.50000000000006 235,330 257.1058083755676,247.5 317.49999999999994,187.10580837556765"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="1"
-      />
-    
-      <polygon
-        points="400,110 510,139.47441116742348 590.5255888325764,220 620,330 590.5255888325765,439.99999999999994 510,520.5255888325765 400,550 290.00000000000006,520.5255888325765 209.47441116742354,440.00000000000006 180,330 209.4744111674235,219.99999999999997 289.9999999999999,139.47441116742354"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="1"
-      />
-    
+  <!-- Radar -->
 
-  
-      <line
-        x1="400"
-        y1="330"
-        x2="400"
-        y2="110"
+  <g>
+    
+      <polygon
+        points="310,246.25 329.375,251.441515603353 343.558484396647,265.625 348.75,285 343.55848439664703,304.375 329.375,318.55848439664703 310,323.75 290.625,318.55848439664703 276.441515603353,304.375 271.25,285 276.441515603353,265.625 290.625,251.44151560335303"
+        fill="none"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
+      />
+    
+      <polygon
+        points="310,207.5 348.75,217.883031206706 377.116968793294,246.25 387.5,285 377.116968793294,323.75 348.75,352.116968793294 310,362.5 271.25,352.116968793294 242.88303120670602,323.75 232.5,285 242.883031206706,246.25 271.24999999999994,217.88303120670602"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="0.8"
+      />
+    
+      <polygon
+        points="310,168.75 368.125,184.32454681005902 410.675453189941,226.875 426.25,285 410.675453189941,343.125 368.125,385.675453189941 310,401.25 251.87500000000003,385.675453189941 209.32454681005902,343.12500000000006 193.75,285 209.32454681005902,226.875 251.87499999999994,184.32454681005902"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="0.8"
+      />
+    
+      <polygon
+        points="310,130 387.5,150.766062413412 444.233937586588,207.5 465,285 444.233937586588,362.5 387.5,419.233937586588 310,440 232.50000000000003,419.233937586588 175.76606241341204,362.50000000000006 155,285 175.76606241341202,207.5 232.49999999999994,150.76606241341204"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="0.8"
+      />
+    
+    
+      <line
+        x1="310"
+        y1="285"
+        x2="310"
+        y2="130"
+        stroke="#e5e7eb"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="510"
-        y2="139.47441116742348"
+        x1="310"
+        y1="285"
+        x2="387.5"
+        y2="150.766062413412"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="590.5255888325764"
-        y2="220"
+        x1="310"
+        y1="285"
+        x2="444.233937586588"
+        y2="207.5"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="620"
-        y2="330"
+        x1="310"
+        y1="285"
+        x2="465"
+        y2="285"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="590.5255888325765"
-        y2="439.99999999999994"
+        x1="310"
+        y1="285"
+        x2="444.233937586588"
+        y2="362.5"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="510"
-        y2="520.5255888325765"
+        x1="310"
+        y1="285"
+        x2="387.5"
+        y2="419.233937586588"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="400"
-        y2="550"
+        x1="310"
+        y1="285"
+        x2="310"
+        y2="440"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="290.00000000000006"
-        y2="520.5255888325765"
+        x1="310"
+        y1="285"
+        x2="232.50000000000003"
+        y2="419.233937586588"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="209.47441116742354"
-        y2="440.00000000000006"
+        x1="310"
+        y1="285"
+        x2="175.76606241341204"
+        y2="362.50000000000006"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="180"
-        y2="330"
+        x1="310"
+        y1="285"
+        x2="155"
+        y2="285"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="209.4744111674235"
-        y2="219.99999999999997"
+        x1="310"
+        y1="285"
+        x2="175.76606241341202"
+        y2="207.5"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
       <line
-        x1="400"
-        y1="330"
-        x2="289.9999999999999"
-        y2="139.47441116742354"
+        x1="310"
+        y1="285"
+        x2="232.49999999999994"
+        y2="150.76606241341204"
         stroke="#e5e7eb"
-        stroke-width="1"
+        stroke-width="0.8"
       />
     
+  </g>
+
+  <!-- Glow behind electric line -->
 
   <polygon
-    points="400,167.61904761904762 431.42857142857144,275.5641174764067 590.5255888325764,220 405.23809523809524,330 563.3076475707799,424.2857142857142 400,330 400,330 400,330 400,330 400,330 400,330 342.38095238095235,230.200882040079"
-    fill="#06b6d4"
-    fill-opacity="0.18"
+    points="310,170.59523809523807 332.1428571428571,246.647446403832 444.233937586588,207.5 313.6904761904762,285 425.057660788504,351.4285714285714 310,285 310,285 310,285 310,285 310,285 310,285 267.55952380952374,211.490938940678"
+    fill="none"
     stroke="#06b6d4"
-    stroke-width="3"
+    stroke-width="7"
+    opacity="0.12"
+    filter="url(#strongGlow)"
   />
+
+  <!-- Main data area -->
+
+  <polygon
+    points="310,170.59523809523807 332.1428571428571,246.647446403832 444.233937586588,207.5 313.6904761904762,285 425.057660788504,351.4285714285714 310,285 310,285 310,285 310,285 310,285 310,285 267.55952380952374,211.490938940678"
+    fill="#06b6d4"
+    fill-opacity="0.10"
+    stroke="#06b6d4"
+    stroke-width="2"
+  />
+
+  <!-- Electric glow -->
+
+  <polygon
+    points="310,170.59523809523807 332.1428571428571,246.647446403832 444.233937586588,207.5 313.6904761904762,285 425.057660788504,351.4285714285714 310,285 310,285 310,285 310,285 310,285 310,285 267.55952380952374,211.490938940678"
+    fill="none"
+    stroke="#22d3ee"
+    stroke-width="5"
+    opacity="0.35"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-dasharray="10 18"
+    filter="url(#glow)"
+  >
+    <animate
+      attributeName="stroke-dashoffset"
+      from="0"
+      to="-56"
+      dur="1.2s"
+      repeatCount="indefinite"
+    />
+  </polygon>
+
+  <!-- Moving electric current -->
+
+  <polygon
+    points="310,170.59523809523807 332.1428571428571,246.647446403832 444.233937586588,207.5 313.6904761904762,285 425.057660788504,351.4285714285714 310,285 310,285 310,285 310,285 310,285 310,285 267.55952380952374,211.490938940678"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-dasharray="3 25"
+    filter="url(#glow)"
+  >
+    <animate
+      attributeName="stroke-dashoffset"
+      from="0"
+      to="-56"
+      dur="0.8s"
+      repeatCount="indefinite"
+    />
+  </polygon>
+
+  <!-- Data points -->
 
   
         <circle
-          cx="400"
-          cy="167.61904761904762"
-          r="6"
+          cx="310"
+          cy="170.59523809523807"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="400"
-          y="155.61904761904762"
+          x="310"
+          y="161.59523809523807"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -203,18 +306,18 @@
         </text>
       
         <circle
-          cx="431.42857142857144"
-          cy="275.5641174764067"
-          r="6"
+          cx="332.1428571428571"
+          cy="246.647446403832"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="431.42857142857144"
-          y="263.5641174764067"
+          x="332.1428571428571"
+          y="237.647446403832"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -222,18 +325,18 @@
         </text>
       
         <circle
-          cx="590.5255888325764"
-          cy="220"
-          r="6"
+          cx="444.233937586588"
+          cy="207.5"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="590.5255888325764"
-          y="208"
+          x="444.233937586588"
+          y="198.5"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -241,18 +344,18 @@
         </text>
       
         <circle
-          cx="405.23809523809524"
-          cy="330"
-          r="6"
+          cx="313.6904761904762"
+          cy="285"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="405.23809523809524"
-          y="318"
+          x="313.6904761904762"
+          y="276"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -260,18 +363,18 @@
         </text>
       
         <circle
-          cx="563.3076475707799"
-          cy="424.2857142857142"
-          r="6"
+          cx="425.057660788504"
+          cy="351.4285714285714"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="563.3076475707799"
-          y="412.2857142857142"
+          x="425.057660788504"
+          y="342.4285714285714"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -279,18 +382,18 @@
         </text>
       
         <circle
-          cx="400"
-          cy="330"
-          r="6"
+          cx="310"
+          cy="285"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="400"
-          y="318"
+          x="310"
+          y="276"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -298,18 +401,18 @@
         </text>
       
         <circle
-          cx="400"
-          cy="330"
-          r="6"
+          cx="310"
+          cy="285"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="400"
-          y="318"
+          x="310"
+          y="276"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -317,18 +420,18 @@
         </text>
       
         <circle
-          cx="400"
-          cy="330"
-          r="6"
+          cx="310"
+          cy="285"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="400"
-          y="318"
+          x="310"
+          y="276"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -336,18 +439,18 @@
         </text>
       
         <circle
-          cx="400"
-          cy="330"
-          r="6"
+          cx="310"
+          cy="285"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="400"
-          y="318"
+          x="310"
+          y="276"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -355,18 +458,18 @@
         </text>
       
         <circle
-          cx="400"
-          cy="330"
-          r="6"
+          cx="310"
+          cy="285"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="400"
-          y="318"
+          x="310"
+          y="276"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -374,18 +477,18 @@
         </text>
       
         <circle
-          cx="400"
-          cy="330"
-          r="6"
+          cx="310"
+          cy="285"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="400"
-          y="318"
+          x="310"
+          y="276"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
@@ -393,191 +496,194 @@
         </text>
       
         <circle
-          cx="342.38095238095235"
-          cy="230.200882040079"
-          r="6"
+          cx="267.55952380952374"
+          cy="211.490938940678"
+          r="3.5"
           fill="#06b6d4"
         />
 
         <text
-          x="342.38095238095235"
-          y="218.200882040079"
+          x="267.55952380952374"
+          y="202.490938940678"
           text-anchor="middle"
-          font-family="Arial"
-          font-size="11"
+          font-family="Arial, sans-serif"
+          font-size="9"
           font-weight="600"
           fill="#374151"
         >
-          22
+          23
         </text>
       
+
+  <!-- Labels -->
 
   
       <text
-        x="400"
-        y="75"
+        x="310"
+        y="102"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Oct
       </text>
     
       <text
-        x="527.5"
-        y="109.16352203496814"
+        x="401.5"
+        y="126.51735110744772"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Nov
       </text>
     
       <text
-        x="620.8364779650318"
-        y="202.5"
+        x="468.4826488925523"
+        y="193.5"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Dec
       </text>
     
       <text
-        x="655"
-        y="330"
+        x="493"
+        y="285"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Jan
       </text>
     
       <text
-        x="620.8364779650319"
-        y="457.49999999999994"
+        x="468.4826488925523"
+        y="376.5"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Feb
       </text>
     
       <text
-        x="527.5"
-        y="550.8364779650319"
+        x="401.5"
+        y="443.4826488925523"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Mar
       </text>
     
       <text
-        x="400"
-        y="585"
+        x="310"
+        y="468"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Apr
       </text>
     
       <text
-        x="272.50000000000006"
-        y="550.8364779650319"
+        x="218.50000000000006"
+        y="443.4826488925523"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         May
       </text>
     
       <text
-        x="179.1635220349682"
-        y="457.5000000000001"
+        x="151.51735110744775"
+        y="376.50000000000006"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Jun
       </text>
     
       <text
-        x="145"
-        y="330.00000000000006"
+        x="127"
+        y="285"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Jul
       </text>
     
       <text
-        x="179.16352203496817"
-        y="202.49999999999997"
+        x="151.51735110744772"
+        y="193.5"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Aug
       </text>
     
       <text
-        x="272.4999999999999"
-        y="109.1635220349682"
+        x="218.49999999999991"
+        y="126.51735110744775"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-family="Arial"
-        font-size="14"
+        font-family="Arial, sans-serif"
+        font-size="11"
         font-weight="600"
-        fill="#374151"
+        fill="#4b5563"
       >
         Sep
       </text>
     
 
   <text
-    x="400"
-    y="625"
+    x="310"
+    y="484"
     text-anchor="middle"
-    font-family="Arial"
-    font-size="11"
+    font-family="Arial, sans-serif"
+    font-size="9"
     fill="#9ca3af"
   >
     Mehregan-A
   </text>
+
 </svg>
