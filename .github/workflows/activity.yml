@@ -24,6 +24,8 @@ jobs:
           node-version: 20
 
       - name: Generate spider chart
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/spider.js
 
       - name: Commit changes
