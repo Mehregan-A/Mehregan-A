@@ -1,16 +1,40 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="620"
-  height="500"
-  viewBox="0 0 620 500"
+  height="520"
+  viewBox="0 0 620 520"
 >
+
   <defs>
+
+    <!-- Background gradient -->
+
+    <linearGradient
+      id="background"
+      x1="0"
+      y1="0"
+      x2="0"
+      y2="1"
+    >
+      <stop
+        offset="0%"
+        stop-color="#071a2b"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#020b14"
+      />
+    </linearGradient>
+
+    <!-- Radar glow -->
+
     <filter
       id="glow"
-      x="-50%"
-      y="-50%"
-      width="200%"
-      height="200%"
+      x="-100%"
+      y="-100%"
+      width="300%"
+      height="300%"
     >
       <feGaussianBlur
         stdDeviation="3"
@@ -23,15 +47,17 @@
       </feMerge>
     </filter>
 
+    <!-- Strong glow -->
+
     <filter
       id="strongGlow"
-      x="-50%"
-      y="-50%"
-      width="200%"
-      height="200%"
+      x="-100%"
+      y="-100%"
+      width="300%"
+      height="300%"
     >
       <feGaussianBlur
-        stdDeviation="6"
+        stdDeviation="7"
         result="blur"
       />
 
@@ -40,213 +66,623 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <!-- Subtle center glow -->
+
+    <radialGradient
+      id="centerGlow"
+    >
+      <stop
+        offset="0%"
+        stop-color="#22d3ee"
+        stop-opacity="0.16"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#22d3ee"
+        stop-opacity="0"
+      />
+    </radialGradient>
+
   </defs>
+
+  <!-- Background -->
 
   <rect
     width="100%"
     height="100%"
     rx="20"
-    fill="#ffffff"
+    fill="url(#background)"
   />
 
-  <!-- Title -->
+  <!-- Subtle center light -->
+
+  <circle
+    cx="310"
+    cy="305"
+    r="175"
+    fill="url(#centerGlow)"
+  />
+
+  <!-- Header -->
 
   <text
     x="310"
-    y="35"
+    y="34"
     text-anchor="middle"
     font-family="Arial, sans-serif"
     font-size="19"
     font-weight="700"
-    fill="#111827"
+    letter-spacing="0.5"
+    fill="#e0f2fe"
   >
     GitHub Contributions
   </text>
 
   <text
     x="310"
-    y="57"
+    y="56"
     text-anchor="middle"
     font-family="Arial, sans-serif"
     font-size="11"
-    fill="#6b7280"
+    fill="#67e8f9"
   >
-    146 contributions · last 12 months
+    147 contributions · last 12 months
   </text>
+
+  <!-- Small header line -->
+
+  <line
+    x1="235"
+    y1="70"
+    x2="385"
+    y2="70"
+    stroke="#164e63"
+    stroke-width="1"
+  />
+
+  <circle
+    cx="232"
+    cy="70"
+    r="2"
+    fill="#22d3ee"
+  />
+
+  <circle
+    cx="388"
+    cy="70"
+    r="2"
+    fill="#22d3ee"
+  />
 
   <!-- Radar -->
 
   <g>
+
     
-      <polygon
-        points="310,246.25 329.375,251.441515603353 343.558484396647,265.625 348.75,285 343.55848439664703,304.375 329.375,318.55848439664703 310,323.75 290.625,318.55848439664703 276.441515603353,304.375 271.25,285 276.441515603353,265.625 290.625,251.44151560335303"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
-      />
-    
-      <polygon
-        points="310,207.5 348.75,217.883031206706 377.116968793294,246.25 387.5,285 377.116968793294,323.75 348.75,352.116968793294 310,362.5 271.25,352.116968793294 242.88303120670602,323.75 232.5,285 242.883031206706,246.25 271.24999999999994,217.88303120670602"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
-      />
-    
-      <polygon
-        points="310,168.75 368.125,184.32454681005902 410.675453189941,226.875 426.25,285 410.675453189941,343.125 368.125,385.675453189941 310,401.25 251.87500000000003,385.675453189941 209.32454681005902,343.12500000000006 193.75,285 209.32454681005902,226.875 251.87499999999994,184.32454681005902"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
-      />
-    
-      <polygon
-        points="310,130 387.5,150.766062413412 444.233937586588,207.5 465,285 444.233937586588,362.5 387.5,419.233937586588 310,440 232.50000000000003,419.233937586588 175.76606241341204,362.50000000000006 155,285 175.76606241341202,207.5 232.49999999999994,150.76606241341204"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
-      />
-    
+        <polygon
+          points="310,267.5 328.75,272.5240473580835 342.4759526419165,286.25 347.5,305 342.4759526419165,323.75 328.75,337.4759526419165 310,342.5 291.25,337.4759526419165 277.5240473580836,323.75 272.5,305 277.5240473580835,286.25 291.25,272.5240473580836"
+          fill="none"
+          stroke="#12384a"
+          stroke-width="1"
+        />
+      
+        <polygon
+          points="310,230 347.5,240.0480947161671 374.9519052838329,267.5 385,305 374.9519052838329,342.5 347.5,369.9519052838329 310,380 272.5,369.9519052838329 245.0480947161671,342.5 235,305 245.0480947161671,267.5 272.49999999999994,240.0480947161671"
+          fill="none"
+          stroke="#12384a"
+          stroke-width="1"
+        />
+      
+        <polygon
+          points="310,192.5 366.25,207.57214207425065 407.4278579257493,248.75 422.5,305 407.4278579257493,361.25 366.25,402.4278579257493 310,417.5 253.75000000000003,402.4278579257493 212.57214207425068,361.25000000000006 197.5,305 212.57214207425068,248.75 253.74999999999994,207.57214207425068"
+          fill="none"
+          stroke="#12384a"
+          stroke-width="1"
+        />
+      
+        <polygon
+          points="310,155 385,175.0961894323342 439.9038105676658,230 460,305 439.9038105676658,380 385,434.9038105676658 310,455 235.00000000000003,434.9038105676658 180.09618943233423,380.00000000000006 160,305 180.0961894323342,230 234.99999999999994,175.09618943233423"
+          fill="none"
+          stroke="#155e75"
+          stroke-width="1.4"
+        />
+      
+
     
       <line
         x1="310"
-        y1="285"
+        y1="305"
         x2="310"
-        y2="130"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y2="155"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="387.5"
-        y2="150.766062413412"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="385"
+        y2="175.0961894323342"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="444.233937586588"
-        y2="207.5"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="439.9038105676658"
+        y2="230"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="465"
-        y2="285"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="460"
+        y2="305"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="444.233937586588"
-        y2="362.5"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="439.9038105676658"
+        y2="380"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="387.5"
-        y2="419.233937586588"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="385"
+        y2="434.9038105676658"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
+        y1="305"
         x2="310"
-        y2="440"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y2="455"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="232.50000000000003"
-        y2="419.233937586588"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="235.00000000000003"
+        y2="434.9038105676658"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="175.76606241341204"
-        y2="362.50000000000006"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="180.09618943233423"
+        y2="380.00000000000006"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="155"
-        y2="285"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="160"
+        y2="305"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="175.76606241341202"
-        y2="207.5"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="180.0961894323342"
+        y2="230"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
       <line
         x1="310"
-        y1="285"
-        x2="232.49999999999994"
-        y2="150.76606241341204"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        y1="305"
+        x2="234.99999999999994"
+        y2="175.09618943233423"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     
+
+    
+          <circle
+            cx="310"
+            cy="267.5"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="328.75"
+            cy="272.5240473580835"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="342.4759526419165"
+            cy="286.25"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="347.5"
+            cy="305"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="342.4759526419165"
+            cy="323.75"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="328.75"
+            cy="337.4759526419165"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="310"
+            cy="342.5"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="291.25"
+            cy="337.4759526419165"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="277.5240473580836"
+            cy="323.75"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="272.5"
+            cy="305"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="277.5240473580835"
+            cy="286.25"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="291.25"
+            cy="272.5240473580836"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="310"
+            cy="230"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="347.5"
+            cy="240.0480947161671"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="374.9519052838329"
+            cy="267.5"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="385"
+            cy="305"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="374.9519052838329"
+            cy="342.5"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="347.5"
+            cy="369.9519052838329"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="310"
+            cy="380"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="272.5"
+            cy="369.9519052838329"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="245.0480947161671"
+            cy="342.5"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="235"
+            cy="305"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="245.0480947161671"
+            cy="267.5"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="272.49999999999994"
+            cy="240.0480947161671"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="310"
+            cy="192.5"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="366.25"
+            cy="207.57214207425065"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="407.4278579257493"
+            cy="248.75"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="422.5"
+            cy="305"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="407.4278579257493"
+            cy="361.25"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="366.25"
+            cy="402.4278579257493"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="310"
+            cy="417.5"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="253.75000000000003"
+            cy="402.4278579257493"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="212.57214207425068"
+            cy="361.25000000000006"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="197.5"
+            cy="305"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="212.57214207425068"
+            cy="248.75"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="253.74999999999994"
+            cy="207.57214207425068"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="310"
+            cy="155"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="385"
+            cy="175.0961894323342"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="439.9038105676658"
+            cy="230"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="460"
+            cy="305"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="439.9038105676658"
+            cy="380"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="385"
+            cy="434.9038105676658"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="310"
+            cy="455"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="235.00000000000003"
+            cy="434.9038105676658"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="180.09618943233423"
+            cy="380.00000000000006"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="160"
+            cy="305"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="180.0961894323342"
+            cy="230"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+          <circle
+            cx="234.99999999999994"
+            cy="175.09618943233423"
+            r="1.3"
+            fill="#164e63"
+          />
+        
+
   </g>
 
-  <!-- Soft glow behind the data -->
+  <!-- Outer radar glow -->
 
   <polygon
-    points="310,170.59523809523807 332.1428571428571,246.647446403832 444.233937586588,207.5 313.6904761904762,285 425.057660788504,351.4285714285714 310,285 310,285 310,285 310,285 310,285 310,285 265.71428571428567,208.29489280766404"
+    points="310,155 385,175.0961894323342 439.9038105676658,230 460,305 439.9038105676658,380 385,434.9038105676658 310,455 235.00000000000003,434.9038105676658 180.09618943233423,380.00000000000006 160,305 180.0961894323342,230 234.99999999999994,175.09618943233423"
     fill="none"
-    stroke="#06b6d4"
-    stroke-width="7"
-    opacity="0.12"
+    stroke="#0891b2"
+    stroke-width="3"
+    opacity="0.18"
     filter="url(#strongGlow)"
   />
 
-  <!-- Main data area -->
+  <!-- Main data shape -->
 
   <polygon
-    points="310,170.59523809523807 332.1428571428571,246.647446403832 444.233937586588,207.5 313.6904761904762,285 425.057660788504,351.4285714285714 310,285 310,285 310,285 310,285 310,285 310,285 265.71428571428567,208.29489280766404"
+    points="310,194.28571428571428 331.42857142857144,267.8846255520955 439.9038105676658,230 313.57142857142856,305 421.34612334371354,369.2857142857142 310,305 310,305 310,305 310,305 310,305 310,305 265.35714285714283,227.67630323353228"
     fill="#06b6d4"
-    fill-opacity="0.10"
-    stroke="#06b6d4"
+    fill-opacity="0.13"
+    stroke="#22d3ee"
     stroke-width="2"
+    stroke-linejoin="round"
   />
 
-  <!-- One slow cyan electric pulse -->
+  <!-- Data shape glow -->
 
   <polygon
-    points="310,170.59523809523807 332.1428571428571,246.647446403832 444.233937586588,207.5 313.6904761904762,285 425.057660788504,351.4285714285714 310,285 310,285 310,285 310,285 310,285 310,285 265.71428571428567,208.29489280766404"
+    points="310,194.28571428571428 331.42857142857144,267.8846255520955 439.9038105676658,230 313.57142857142856,305 421.34612334371354,369.2857142857142 310,305 310,305 310,305 310,305 310,305 310,305 265.35714285714283,227.67630323353228"
+    fill="none"
+    stroke="#22d3ee"
+    stroke-width="5"
+    opacity="0.18"
+    stroke-linejoin="round"
+    filter="url(#strongGlow)"
+  />
+
+  <!-- Slow cyan electric pulse -->
+
+  <polygon
+    points="310,194.28571428571428 331.42857142857144,267.8846255520955 439.9038105676658,230 313.57142857142856,305 421.34612334371354,369.2857142857142 310,305 310,305 310,305 310,305 310,305 310,305 265.35714285714283,227.67630323353228"
     pathLength="1000"
     fill="none"
     stroke="#22d3ee"
     stroke-width="5"
-    opacity="0.7"
+    opacity="0.75"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-dasharray="18 982"
@@ -261,10 +697,10 @@
     />
   </polygon>
 
-  <!-- One bright white pulse -->
+  <!-- Bright white pulse -->
 
   <polygon
-    points="310,170.59523809523807 332.1428571428571,246.647446403832 444.233937586588,207.5 313.6904761904762,285 425.057660788504,351.4285714285714 310,285 310,285 310,285 310,285 310,285 310,285 265.71428571428567,208.29489280766404"
+    points="310,194.28571428571428 331.42857142857144,267.8846255520955 439.9038105676658,230 313.57142857142856,305 421.34612334371354,369.2857142857142 310,305 310,305 310,305 310,305 310,305 310,305 265.35714285714283,227.67630323353228"
     pathLength="1000"
     fill="none"
     stroke="#ffffff"
@@ -289,402 +725,832 @@
   
         <circle
           cx="310"
-          cy="170.59523809523807"
-          r="3.5"
-          fill="#06b6d4"
+          cy="194.28571428571428"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="310"
+          cy="194.28571428571428"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
           x="310"
-          y="161.59523809523807"
+          y="183.28571428571428"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           31
         </text>
       
         <circle
-          cx="332.1428571428571"
-          cy="246.647446403832"
-          r="3.5"
-          fill="#06b6d4"
+          cx="331.42857142857144"
+          cy="267.8846255520955"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="331.42857142857144"
+          cy="267.8846255520955"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
-          x="332.1428571428571"
-          y="237.647446403832"
+          x="331.42857142857144"
+          y="256.8846255520955"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           12
         </text>
       
         <circle
-          cx="444.233937586588"
-          cy="207.5"
-          r="3.5"
-          fill="#06b6d4"
+          cx="439.9038105676658"
+          cy="230"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="439.9038105676658"
+          cy="230"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
-          x="444.233937586588"
-          y="198.5"
+          x="439.9038105676658"
+          y="219"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           42
         </text>
       
         <circle
-          cx="313.6904761904762"
-          cy="285"
-          r="3.5"
-          fill="#06b6d4"
+          cx="313.57142857142856"
+          cy="305"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="313.57142857142856"
+          cy="305"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
-          x="313.6904761904762"
-          y="276"
+          x="313.57142857142856"
+          y="294"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           1
         </text>
       
         <circle
-          cx="425.057660788504"
-          cy="351.4285714285714"
-          r="3.5"
-          fill="#06b6d4"
+          cx="421.34612334371354"
+          cy="369.2857142857142"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="421.34612334371354"
+          cy="369.2857142857142"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
-          x="425.057660788504"
-          y="342.4285714285714"
+          x="421.34612334371354"
+          y="358.2857142857142"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           36
         </text>
       
         <circle
           cx="310"
-          cy="285"
-          r="3.5"
-          fill="#06b6d4"
+          cy="305"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="310"
+          cy="305"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
           x="310"
-          y="276"
+          y="294"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           0
         </text>
       
         <circle
           cx="310"
-          cy="285"
-          r="3.5"
-          fill="#06b6d4"
+          cy="305"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="310"
+          cy="305"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
           x="310"
-          y="276"
+          y="294"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           0
         </text>
       
         <circle
           cx="310"
-          cy="285"
-          r="3.5"
-          fill="#06b6d4"
+          cy="305"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="310"
+          cy="305"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
           x="310"
-          y="276"
+          y="294"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           0
         </text>
       
         <circle
           cx="310"
-          cy="285"
-          r="3.5"
-          fill="#06b6d4"
+          cy="305"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="310"
+          cy="305"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
           x="310"
-          y="276"
+          y="294"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           0
         </text>
       
         <circle
           cx="310"
-          cy="285"
-          r="3.5"
-          fill="#06b6d4"
+          cy="305"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="310"
+          cy="305"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
           x="310"
-          y="276"
+          y="294"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           0
         </text>
       
         <circle
           cx="310"
-          cy="285"
-          r="3.5"
-          fill="#06b6d4"
+          cy="305"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="310"
+          cy="305"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
           x="310"
-          y="276"
+          y="294"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           0
         </text>
       
         <circle
-          cx="265.71428571428567"
-          cy="208.29489280766404"
-          r="3.5"
-          fill="#06b6d4"
+          cx="265.35714285714283"
+          cy="227.67630323353228"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="265.35714285714283"
+          cy="227.67630323353228"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
-          x="265.71428571428567"
-          y="199.29489280766404"
+          x="265.35714285714283"
+          y="216.67630323353228"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
-          24
+          25
         </text>
       
 
   <!-- Month labels -->
 
   
+      <!-- Month connector -->
+
+      <line
+        x1="310"
+        y1="152"
+        x2="310"
+        y2="128"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="310"
+        cy="128"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
         x="310"
-        y="102"
+        y="112"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Oct
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="386.5"
+        y1="172.49811322098088"
+        x2="398.5"
+        y2="151.71350353015436"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="398.5"
+        cy="151.71350353015436"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="401.5"
-        y="126.51735110744772"
+        x="406.5"
+        y="137.85709706960333"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Nov
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="442.5018867790191"
+        y1="228.5"
+        x2="463.28649646984564"
+        y2="216.5"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="463.28649646984564"
+        cy="216.5"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="468.4826488925523"
-        y="193.5"
+        x="477.14290293039664"
+        y="208.5"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Dec
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="463"
+        y1="305"
+        x2="487"
+        y2="305"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="487"
+        cy="305"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="493"
-        y="285"
+        x="503"
+        y="305"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Jan
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="442.5018867790191"
+        y1="381.5"
+        x2="463.28649646984564"
+        y2="393.5"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="463.28649646984564"
+        cy="393.5"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="468.4826488925523"
-        y="376.5"
+        x="477.14290293039664"
+        y="401.5"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Feb
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="386.5"
+        y1="437.5018867790191"
+        x2="398.5"
+        y2="458.28649646984564"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="398.5"
+        cy="458.28649646984564"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="401.5"
-        y="443.4826488925523"
+        x="406.5"
+        y="472.14290293039664"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Mar
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="310"
+        y1="458"
+        x2="310"
+        y2="482"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="310"
+        cy="482"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
         x="310"
-        y="468"
+        y="498"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Apr
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="233.50000000000003"
+        y1="437.5018867790191"
+        x2="221.50000000000006"
+        y2="458.28649646984564"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="221.50000000000006"
+        cy="458.28649646984564"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="218.50000000000006"
-        y="443.4826488925523"
+        x="213.50000000000006"
+        y="472.14290293039664"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         May
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="177.4981132209809"
+        y1="381.50000000000006"
+        x2="156.71350353015438"
+        y2="393.50000000000006"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="156.71350353015438"
+        cy="393.50000000000006"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="151.51735110744775"
-        y="376.50000000000006"
+        x="142.85709706960338"
+        y="401.50000000000006"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Jun
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="157"
+        y1="305"
+        x2="133"
+        y2="305"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="133"
+        cy="305"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="127"
-        y="285"
+        x="117"
+        y="305"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Jul
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="177.49811322098088"
+        y1="228.5"
+        x2="156.71350353015436"
+        y2="216.5"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="156.71350353015436"
+        cy="216.5"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="151.51735110744772"
-        y="193.5"
+        x="142.85709706960336"
+        y="208.49999999999997"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Aug
       </text>
     
+      <!-- Month connector -->
+
+      <line
+        x1="233.49999999999994"
+        y1="172.4981132209809"
+        x2="221.49999999999991"
+        y2="151.71350353015438"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="221.49999999999991"
+        cy="151.71350353015438"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
-        x="218.49999999999991"
-        y="126.51735110744775"
+        x="213.49999999999991"
+        y="137.85709706960338"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         Sep
       </text>
     
 
+  <!-- Center node -->
+
+  <circle
+    cx="310"
+    cy="305"
+    r="7"
+    fill="#06141f"
+    stroke="#22d3ee"
+    stroke-width="1.5"
+    filter="url(#glow)"
+  />
+
+  <circle
+    cx="310"
+    cy="305"
+    r="2.5"
+    fill="#67e8f9"
+  />
+
+  <!-- Footer -->
+
   <text
     x="310"
-    y="484"
+    y="505"
     text-anchor="middle"
     font-family="Arial, sans-serif"
     font-size="9"
-    fill="#9ca3af"
+    letter-spacing="1"
+    fill="#164e63"
   >
-    Mehregan-A
+    MEHREGAN-A
   </text>
 
 </svg>
