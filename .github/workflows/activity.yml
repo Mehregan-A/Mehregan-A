@@ -1,17 +1,9 @@
-name: Update GitHub Activity
+name: Update Spider Chart
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
-
   workflow_dispatch:
-
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: write
+  schedule:
+    - cron: "0 0 * * 1"
 
 jobs:
   update:
@@ -21,18 +13,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate activity graph
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/activity.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - name: Commit activity graph
+      - name: Generate spider chart
+        run: node scripts/spider.js
+
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add assets/activity.svg
-
-          git diff --cached --quiet || git commit -m "Update GitHub activity graph"
-
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/spider.svg
+          git diff --cached --quiet || git commit -m "Update spider chart"
           git push
