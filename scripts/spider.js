@@ -1,4 +1,3 @@
-
 const fs = require("fs");
 
 const username = "Mehregan-A";
@@ -102,12 +101,12 @@ function getMonthlyData(calendar) {
 
 function createSVG(months) {
   const width = 620;
-  const height = 500;
+  const height = 520;
 
   const cx = 310;
-  const cy = 285;
+  const cy = 305;
 
-  const radius = 155;
+  const radius = 150;
 
   const max = Math.max(
     ...months.map((item) => item.count),
@@ -145,35 +144,85 @@ function createSVG(months) {
     .map((point) => `${point.x},${point.y}`)
     .join(" ");
 
+  /*
+   * Radar rings
+   */
+
   let rings = "";
 
-  [0.25, 0.5, 0.75, 1].forEach((level) => {
-    const ringPoints = months
-      .map((_, index) => {
+  [0.25, 0.5, 0.75, 1].forEach(
+    (level, index) => {
+      const ringPoints = months
+        .map((_, monthIndex) => {
+          const angle =
+            (Math.PI * 2 * monthIndex) /
+              months.length -
+            Math.PI / 2;
+
+          const r = radius * level;
+
+          return `${cx + Math.cos(angle) * r},${
+            cy + Math.sin(angle) * r
+          }`;
+        })
+        .join(" ");
+
+      rings += `
+        <polygon
+          points="${ringPoints}"
+          fill="none"
+          stroke="${
+            index === 3
+              ? "#155e75"
+              : "#12384a"
+          }"
+          stroke-width="${
+            index === 3 ? "1.4" : "1"
+          }"
+        />
+      `;
+    }
+  );
+
+  /*
+   * Inner radar dots
+   */
+
+  let radarDots = "";
+
+  [0.25, 0.5, 0.75, 1].forEach(
+    (level) => {
+      months.forEach((_, index) => {
         const angle =
-          (Math.PI * 2 * index) / months.length -
+          (Math.PI * 2 * index) /
+            months.length -
           Math.PI / 2;
 
         const r = radius * level;
 
-        return `${cx + Math.cos(angle) * r},${
-          cy + Math.sin(angle) * r
-        }`;
-      })
-      .join(" ");
+        const x =
+          cx + Math.cos(angle) * r;
 
-    rings += `
-      <polygon
-        points="${ringPoints}"
-        fill="none"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
-      />
-    `;
-  });
+        const y =
+          cy + Math.sin(angle) * r;
+
+        radarDots += `
+          <circle
+            cx="${x}"
+            cy="${y}"
+            r="1.3"
+            fill="#164e63"
+          />
+        `;
+      });
+    }
+  );
+
+  /*
+   * Axis lines
+   */
 
   let axes = "";
-  let labels = "";
 
   points.forEach((point) => {
     axes += `
@@ -182,20 +231,76 @@ function createSVG(months) {
         y1="${cy}"
         x2="${point.x}"
         y2="${point.y}"
-        stroke="#e5e7eb"
-        stroke-width="0.8"
+        stroke="#164e63"
+        stroke-width="0.9"
       />
     `;
+  });
 
-    const labelRadius = radius + 28;
+  /*
+   * Month labels
+   */
+
+  let labels = "";
+
+  points.forEach((point, index) => {
+    const labelRadius = radius + 43;
 
     const labelX =
-      cx + Math.cos(point.angle) * labelRadius;
+      cx +
+      Math.cos(point.angle) *
+        labelRadius;
 
     const labelY =
-      cy + Math.sin(point.angle) * labelRadius;
+      cy +
+      Math.sin(point.angle) *
+        labelRadius;
+
+    const lineStartX =
+      cx +
+      Math.cos(point.angle) *
+        (radius + 3);
+
+    const lineStartY =
+      cy +
+      Math.sin(point.angle) *
+        (radius + 3);
+
+    const lineEndX =
+      cx +
+      Math.cos(point.angle) *
+        (radius + 27);
+
+    const lineEndY =
+      cy +
+      Math.sin(point.angle) *
+        (radius + 27);
 
     labels += `
+      <!-- Month connector -->
+
+      <line
+        x1="${lineStartX}"
+        y1="${lineStartY}"
+        x2="${lineEndX}"
+        y2="${lineEndY}"
+        stroke="#155e75"
+        stroke-width="1"
+      />
+
+      <!-- Month node -->
+
+      <circle
+        cx="${lineEndX}"
+        cy="${lineEndY}"
+        r="2.5"
+        fill="#22d3ee"
+        opacity="0.9"
+        filter="url(#glow)"
+      />
+
+      <!-- Month name -->
+
       <text
         x="${labelX}"
         y="${labelY}"
@@ -204,12 +309,17 @@ function createSVG(months) {
         font-family="Arial, sans-serif"
         font-size="11"
         font-weight="600"
-        fill="#4b5563"
+        letter-spacing="0.4"
+        fill="#bae6fd"
       >
         ${point.label}
       </text>
     `;
   });
+
+  /*
+   * Contribution values
+   */
 
   const circles = dataPoints
     .map(
@@ -217,18 +327,27 @@ function createSVG(months) {
         <circle
           cx="${point.x}"
           cy="${point.y}"
-          r="3.5"
-          fill="#06b6d4"
+          r="4"
+          fill="#082f49"
+          stroke="#22d3ee"
+          stroke-width="1.5"
+        />
+
+        <circle
+          cx="${point.x}"
+          cy="${point.y}"
+          r="1.5"
+          fill="#67e8f9"
         />
 
         <text
           x="${point.x}"
-          y="${point.y - 9}"
+          y="${point.y - 11}"
           text-anchor="middle"
           font-family="Arial, sans-serif"
           font-size="9"
           font-weight="600"
-          fill="#374151"
+          fill="#a5f3fc"
         >
           ${months[index].count}
         </text>
@@ -237,7 +356,8 @@ function createSVG(months) {
     .join("");
 
   const total = months.reduce(
-    (sum, month) => sum + month.count,
+    (sum, month) =>
+      sum + month.count,
     0
   );
 
@@ -248,13 +368,37 @@ function createSVG(months) {
   height="${height}"
   viewBox="0 0 ${width} ${height}"
 >
+
   <defs>
+
+    <!-- Background gradient -->
+
+    <linearGradient
+      id="background"
+      x1="0"
+      y1="0"
+      x2="0"
+      y2="1"
+    >
+      <stop
+        offset="0%"
+        stop-color="#071a2b"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#020b14"
+      />
+    </linearGradient>
+
+    <!-- Radar glow -->
+
     <filter
       id="glow"
-      x="-50%"
-      y="-50%"
-      width="200%"
-      height="200%"
+      x="-100%"
+      y="-100%"
+      width="300%"
+      height="300%"
     >
       <feGaussianBlur
         stdDeviation="3"
@@ -267,15 +411,17 @@ function createSVG(months) {
       </feMerge>
     </filter>
 
+    <!-- Strong glow -->
+
     <filter
       id="strongGlow"
-      x="-50%"
-      y="-50%"
-      width="200%"
-      height="200%"
+      x="-100%"
+      y="-100%"
+      width="300%"
+      height="300%"
     >
       <feGaussianBlur
-        stdDeviation="6"
+        stdDeviation="7"
         result="blur"
       />
 
@@ -284,69 +430,148 @@ function createSVG(months) {
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <!-- Subtle center glow -->
+
+    <radialGradient
+      id="centerGlow"
+    >
+      <stop
+        offset="0%"
+        stop-color="#22d3ee"
+        stop-opacity="0.16"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#22d3ee"
+        stop-opacity="0"
+      />
+    </radialGradient>
+
   </defs>
+
+  <!-- Background -->
 
   <rect
     width="100%"
     height="100%"
     rx="20"
-    fill="#ffffff"
+    fill="url(#background)"
   />
 
-  <!-- Title -->
+  <!-- Subtle center light -->
+
+  <circle
+    cx="${cx}"
+    cy="${cy}"
+    r="175"
+    fill="url(#centerGlow)"
+  />
+
+  <!-- Header -->
 
   <text
     x="${cx}"
-    y="35"
+    y="34"
     text-anchor="middle"
     font-family="Arial, sans-serif"
     font-size="19"
     font-weight="700"
-    fill="#111827"
+    letter-spacing="0.5"
+    fill="#e0f2fe"
   >
     GitHub Contributions
   </text>
 
   <text
     x="${cx}"
-    y="57"
+    y="56"
     text-anchor="middle"
     font-family="Arial, sans-serif"
     font-size="11"
-    fill="#6b7280"
+    fill="#67e8f9"
   >
     ${total} contributions · last 12 months
   </text>
 
+  <!-- Small header line -->
+
+  <line
+    x1="${cx - 75}"
+    y1="70"
+    x2="${cx + 75}"
+    y2="70"
+    stroke="#164e63"
+    stroke-width="1"
+  />
+
+  <circle
+    cx="${cx - 78}"
+    cy="70"
+    r="2"
+    fill="#22d3ee"
+  />
+
+  <circle
+    cx="${cx + 78}"
+    cy="70"
+    r="2"
+    fill="#22d3ee"
+  />
+
   <!-- Radar -->
 
   <g>
+
     ${rings}
+
     ${axes}
+
+    ${radarDots}
+
   </g>
 
-  <!-- Soft glow behind the data -->
+  <!-- Outer radar glow -->
 
   <polygon
-    points="${polygon}"
+    points="${points
+      .map(
+        (point) =>
+          `${point.x},${point.y}`
+      )
+      .join(" ")}"
     fill="none"
-    stroke="#06b6d4"
-    stroke-width="7"
-    opacity="0.12"
+    stroke="#0891b2"
+    stroke-width="3"
+    opacity="0.18"
     filter="url(#strongGlow)"
   />
 
-  <!-- Main data area -->
+  <!-- Main data shape -->
 
   <polygon
     points="${polygon}"
     fill="#06b6d4"
-    fill-opacity="0.10"
-    stroke="#06b6d4"
+    fill-opacity="0.13"
+    stroke="#22d3ee"
     stroke-width="2"
+    stroke-linejoin="round"
   />
 
-  <!-- One slow cyan electric pulse -->
+  <!-- Data shape glow -->
+
+  <polygon
+    points="${polygon}"
+    fill="none"
+    stroke="#22d3ee"
+    stroke-width="5"
+    opacity="0.18"
+    stroke-linejoin="round"
+    filter="url(#strongGlow)"
+  />
+
+  <!-- Slow cyan electric pulse -->
 
   <polygon
     points="${polygon}"
@@ -354,7 +579,7 @@ function createSVG(months) {
     fill="none"
     stroke="#22d3ee"
     stroke-width="5"
-    opacity="0.7"
+    opacity="0.75"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-dasharray="18 982"
@@ -369,7 +594,7 @@ function createSVG(months) {
     />
   </polygon>
 
-  <!-- One bright white pulse -->
+  <!-- Bright white pulse -->
 
   <polygon
     points="${polygon}"
@@ -400,15 +625,37 @@ function createSVG(months) {
 
   ${labels}
 
+  <!-- Center node -->
+
+  <circle
+    cx="${cx}"
+    cy="${cy}"
+    r="7"
+    fill="#06141f"
+    stroke="#22d3ee"
+    stroke-width="1.5"
+    filter="url(#glow)"
+  />
+
+  <circle
+    cx="${cx}"
+    cy="${cy}"
+    r="2.5"
+    fill="#67e8f9"
+  />
+
+  <!-- Footer -->
+
   <text
     x="${cx}"
-    y="${height - 16}"
+    y="${height - 15}"
     text-anchor="middle"
     font-family="Arial, sans-serif"
     font-size="9"
-    fill="#9ca3af"
+    letter-spacing="1"
+    fill="#164e63"
   >
-    Mehregan-A
+    MEHREGAN-A
   </text>
 
 </svg>
@@ -434,7 +681,7 @@ async function main() {
   );
 
   console.log(
-    "Animated spider chart generated successfully."
+    "Futuristic spider chart generated successfully."
   );
 }
 
