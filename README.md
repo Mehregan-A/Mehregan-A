@@ -50,3 +50,7 @@ I'm also interested in **electronics**, so I'll be sharing projects in that area
 ![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=flat&logo=adobephotoshop&logoColor=white)
 ![Illustrator](https://img.shields.io/badge/Illustrator-FF9A00?style=flat&logo=adobeillustrator&logoColor=white)
 
+## GitHub Activity
+
+![GitHub Activity](./assets/activity.svg)
+
