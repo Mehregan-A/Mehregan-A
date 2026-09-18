@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="180">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="20" y="30"
+        font-family="Arial"
+        font-size="16"
+        font-weight="bold">
+    GitHub Activity
+  </text>
+
+  <text x="20" y="55"
+        font-family="Arial"
+        font-size="12">
+    Mehregan-A
+  </text>
+
+  <g transform="translate(20,75)">
+    <rect x="0" y="0" width="14" height="14" rx="3" fill="#ebedf0"/>
+    <rect x="20" y="0" width="14" height="14" rx="3" fill="#9be9a8"/>
+    <rect x="40" y="0" width="14" height="14" rx="3" fill="#40c463"/>
+    <rect x="60" y="0" width="14" height="14" rx="3" fill="#30a14e"/>
+    <rect x="80" y="0" width="14" height="14" rx="3" fill="#216e39"/>
+  </g>
+</svg>
